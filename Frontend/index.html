@@ -1,25 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Log in · Task Manager</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="auth-page">
   <div class="auth-theme">
-    <button type="button" id="theme-switcher-button" class="btn ghost" aria-pressed="false"><span id="theme-switcher-label">Dark Mode</span></button>
+    <button type="button" id="theme-switcher-button" class="btn ghost" aria-pressed="false"><span
+        id="theme-switcher-label">Dark Mode</span></button>
   </div>
   <main class="auth">
     <h1 class="auth-title">Get your tasks<br>in order.</h1>
     <p class="auth-sub">Log in to see your list, or create an account to start one.</p>
 
     <div class="tabs" role="tablist">
-      <button type="button" role="tab" id="tab-login" class="tab active" aria-selected="true" aria-controls="login-form">Log in</button>
-      <button type="button" role="tab" id="tab-signup" class="tab" aria-selected="false" aria-controls="signup-form">Sign up</button>
+      <button type="button" role="tab" id="tab-login" class="tab active" aria-selected="true"
+        aria-controls="login-form">Log in</button>
+      <button type="button" role="tab" id="tab-signup" class="tab" aria-selected="false"
+        aria-controls="signup-form">Sign up</button>
     </div>
 
     <form id="login-form" class="form" novalidate>
@@ -32,8 +38,8 @@
       <p class="error" role="alert" hidden></p>
       <button type="submit" class="btn primary">Log in</button>
     </form>
-
-    <form id="signup-form" class="form" novalidate hidden>
+S
+    <form id="signup-form" class="form" action="/signup" method="POST" hidden>
       <label>Username
         <input type="text" name="username" autocomplete="username" minlength="3" required>
       </label>
@@ -51,4 +57,5 @@
   <script src="darkmode.js"></script>
   <script src="auth.js"></script>
 </body>
+
 </html>
