@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My tasks · Task Manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1 class="brand">Tasks</h1>
+    <div class="topbar-right">
+      <span id="whoami" class="whoami"></span>
+      <button type="button" id="theme-switcher-button" class="btn ghost" aria-pressed="false"><span id="theme-switcher-label">Dark Mode</span></button>
+      <button type="button" id="logout" class="btn ghost">Log out</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="side">
+      <section>
+        <h2>Filter</h2>
+        <div class="form">
+          <label>Status
+            <select id="filter-status">
+              <option value="">All</option>
+              <option value="pending">Pending</option>
+              <option value="completed">Completed</option>
+            </select>
+          </label>
+          <label>Category
+            <select id="filter-category">
+              <option value="">All</option>
+            </select>
+          </label>
+        </div>
+      </section>
+    </aside>
+
+    <main class="main">
+      <div class="list-head">
+        <h2 id="list-title">All tasks</h2>
+        <span id="count" class="count"></span>
+        <button type="button" id="open-task-form-btn" class="btn primary">New task</button>
+      </div>
+      <p id="status-msg" class="status-msg" role="status"></p>
+      <ul id="task-list" class="task-list"></ul>
+    </main>
+  </div>
+
+  <datalist id="category-suggestions">
+    <option value="work"></option>
+    <option value="personal"></option>
+    <option value="study"></option>
+  </datalist>
+
+  <dialog id="task-dialog">
+    <form id="task-form" class="form" novalidate>
+      <h2 id="task-form-title">New task</h2>
+      <label>Title
+        <input type="text" id="title-input" required maxlength="120">
+      </label>
+      <label>Due date <span class="optional">(optional)</span>
+        <input type="date" id="date-input">
+      </label>
+      <label>Description
+        <textarea id="description-input" rows="3"></textarea>
+      </label>
+      <label>Category <span class="optional">(optional)</span>
+        <input type="text" id="category-input" list="category-suggestions" placeholder="work, personal…">
+      </label>
+      <label id="status-field" hidden>Status
+        <select id="status-input">
+          <option value="pending">Pending</option>
+          <option value="completed">Completed</option>
+        </select>
+      </label>
+      <p class="error" role="alert" hidden></p>
+      <div class="dialog-actions">
+        <button type="button" id="close-task-form-btn" class="btn ghost">Cancel</button>
+        <button type="submit" id="add-or-update-task-btn" class="btn primary">Add task</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="confirm-close-dialog">
+    <form class="form" method="dialog">
+      <h2>Discard unsaved changes?</h2>
+      <p class="confirm-text">What you typed in this task won't be saved.</p>
+      <div class="dialog-actions">
+        <button type="button" id="cancel-btn" class="btn ghost">Keep editing</button>
+        <button type="button" id="discard-btn" class="btn primary">Discard changes</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="darkmode.js"></script>
+  <script type="module" src="tasks.js"></script>
+</body>
+</html>
