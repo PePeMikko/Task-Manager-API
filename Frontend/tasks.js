@@ -1,17 +1,13 @@
 import { getTasks, createTask, updateTask, deleteTask, clearSession } from "not yet made.js";
 
-
 if (!localStorage.getItem("token")) window.location.href = "index.html";
 
 const $ = (id) => document.getElementById(id);
-
 
 const tasksContainer = $("task-list");
 const statusMsg = $("status-msg");
 const filterStatus = $("filter-status");
 const filterCategory = $("filter-category");
-
-
 const taskDialog = $("task-dialog");
 const taskForm = $("task-form");
 const confirmCloseDialog = $("confirm-close-dialog");
