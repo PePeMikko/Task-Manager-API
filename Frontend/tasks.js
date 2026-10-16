@@ -1,4 +1,4 @@
-import { getTasks, createTask, updateTask, deleteTask, clearSession } from "not yet made.js";
+import { getTasks, createTask, updateTask, deleteTask, clearSession } from "./api.js";
 
 
 if (!localStorage.getItem("token")) window.location.href = "index.html";

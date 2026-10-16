@@ -38,8 +38,8 @@
       <p class="error" role="alert" hidden></p>
       <button type="submit" class="btn primary">Log in</button>
     </form>
-S
-    <form id="signup-form" class="form" action="/signup" method="POST" hidden>
+
+    <form id="signup-form" class="form" novalidate hidden>
       <label>Username
         <input type="text" name="username" autocomplete="username" minlength="3" required>
       </label>
@@ -55,7 +55,7 @@ S
     </form>
   </main>
   <script src="darkmode.js"></script>
-  <script src="auth.js"></script>
+  <script type="module" src="auth.js"></script>
 </body>
 
 </html>
