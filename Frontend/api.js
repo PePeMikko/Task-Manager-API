@@ -2,11 +2,10 @@ const BASE_URL = "http://localhost:3000/api";
 const USE_MOCK = true;
 
 function authHeaders() {
-  // TODO (JWT): get the saved token and send it with every request.
-  // The header format is:  Authorization: Bearer <token>
-  // Only add the Authorization header if a token exists.
+  const token = localStorage.getItem("token");
   return {
     "Content-Type": "application/json",
+    ...(token && { Authorization: `Bearer ${token}` }),
   };
 }
 
@@ -15,18 +14,19 @@ async function request(path, options = {}) {
 
   const res = await fetch(BASE_URL + path, { ...options, headers: authHeaders() });
   let data = null;
-  try { data = await res.json(); } catch { /* empty body */ }
+  try { data = await res.json(); } catch {}
 
-  // TODO (JWT): if the server answers 401 (token expired or invalid) and you
-  // had a token, clear the session and send the user back to index.html.
-  // Careful: a wrong password on the login page can also return 401.
+if (res.status === 401 && localStorage.getItem("token")) {
+  clearSession();
+  window.location.href = "index.html";
+}
 
   if (!res.ok) throw new Error((data && data.error) || "Request failed");
   return data;
 }
 
 export function clearSession() {
-  // TODO (JWT): remove the saved token (logging out = forgetting the token)
+  localStorage.removeItem("token"); 
   localStorage.removeItem("username");
 }
 

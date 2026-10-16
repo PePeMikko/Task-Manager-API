@@ -24,9 +24,9 @@ signUpButton.classList.remove("active");
 })
 
 
-// TODO (JWT): if a token is already saved, skip the login page
-// and go straight to tasks.html.
-
+if (localStorage.getItem("token")) {
+  window.location.href = "tasks.html";
+}
 
 function showError(form, message) {
   const errorEl = form.querySelector(".error");
