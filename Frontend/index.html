@@ -28,7 +28,7 @@
         aria-controls="signup-form">Sign up</button>
     </div>
 
-    <form id="login-form" class="form" novalidate>
+    <form id="login-form" class="form" action="/login" method="POST" novalidate>
       <label>Username
         <input type="text" name="username" autocomplete="username" required>
       </label>
@@ -41,41 +41,22 @@
 
     <form id="signup-form" class="form" action="/signup" method="POST" hidden>
       <label>Username
-        <input type="text" id="nameSpot" name="username" autocomplete="username" minlength="3" required>
+        <input type="text" name="username" autocomplete="username" minlength="3" required>
       </label>
       <label>Password
-        <input type="password" id="passwordSpot" name="password" autocomplete="new-password" minlength="6" required>
+        <input type="password" name="password" autocomplete="new-password" minlength="6" required>
         <span class="hint">At least 6 characters</span>
       </label>
       <label>Confirm password
-        <input type="password" id="confirmPasswordSpot" name="confirm" autocomplete="new-password" required>
+        <input type="password" name="confirmPassword" autocomplete="new-password" required>
       </label>
       <p class="error" role="alert" hidden></p>
-      <button type="submit" class="btn primary" id="signUpFormButton">Create account</button>
+      <button type="submit" class="btn primary">Create account</button>
     </form>
   </main>
-
   <script src="darkmode.js"></script>
   <script src="auth.js"></script>
-  <script src="server.js">
-  </script>
-  <script>  const form = document.getElementById('signup-form')
-    const name = document.getElementById('nameSpot')
-    const password = document.getElementById('passwordSpot')
-    const confirmPassword = document.getElementById('confirmPasswordSpot')
-    form.addEventListener('submit', (e) => {
-      e.preventDefault()
-      const name = name.value
-      const password = password.value
-      const confirmPassword = confirmPassword.value
-      fetch('http://localhost:3000/signup', {
-        method: 'POST',
-        headers: {
-          'Content-Type' : 'application/json'
-        },
-        body: JSON.stringify({name, password, confirmPassword})
-      })
-    })</script>
+
 </body>
 
 </html>
