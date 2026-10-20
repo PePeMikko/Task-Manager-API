@@ -30,8 +30,9 @@ let taskData = [];
 let currentTask = null; 
 
 $("whoami").textContent = localStorage.getItem("username") || "";
-$("logout").addEventListener("click", () => {
-  clearSession();
+const logoutButton = document.getElementById("logout");
+logoutButton.addEventListener("click", () => {
+   localStorage.removeItem("token");
   window.location.href = "index.html";
 });
 
