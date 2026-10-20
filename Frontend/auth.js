@@ -1,3 +1,5 @@
+import { login, signup } from "./api.js";
+
 const signUpButton = document.getElementById("tab-signup");
 const loginForm = document.getElementById("login-form");
 const signUpForm = document.getElementById("signup-form");
